@@ -25,10 +25,11 @@ echo -e "Checking /etc/os-release to enable screen sharing in Zoom."
 VERSION_ID=$(grep VERSION_ID $OS_RELEASE_FILE)
 if [[ $VERSION_ID == "" ]]; then
     echo "No VERSION_ID. Adding new one."
-    echo "VERSION_ID=999" >> "$SLACK_AUTOSTART_FILE"
+    echo "VERSION_ID=999" >> "$OS_RELEASE_FILE"
 else 
     if [[ $(echo "$VERSION_ID" | cut -d= -f2) != "999" ]]; then
         echo "VERSION_ID exists. Updating."
+        sed -i "s/$VERSION_ID/VERSION_ID=999/" "$OS_RELEASE_FILE"
     else
         echo "VERSION_ID is OK."
     fi
