@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# This script enables Screen sharing for Zoom and Slack, I depend on.
+# This script enables screen sharing for Zoom and Slack with wayland and WebRTC.
 
 # Tweak ~/.config/autostart/slack.desktop to enable sharing in slack
 SLACK_AUTOSTART_FILE="${HOME}/.config/autostart/slack.desktop"
